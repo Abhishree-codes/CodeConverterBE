@@ -79,7 +79,7 @@ async function getDebuggedCode (code){
               }
             ],
             "temperature": 1,
-            "max_tokens": 256,
+            "max_tokens": 100,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
@@ -104,15 +104,12 @@ app.post("/debug", async (req,res)=>{
 async function getQualityCheck(code){
     const prompt = `Please provide a comprehensive code quality assessment for the given code. Evaluate the code based on the following parameters and rate it on a scale of 10, with 10 being the highest rating and 1 being the lowest (example: 9/10):
 
-    1. Code Consistency: Review the code for consistent coding style, naming conventions, and code formatting.
-    2. Code Performance: Assess the code for efficient algorithms, optimized data structures, and overall performance considerations.
-    3. Code Documentation: Evaluate the code for the presence of appropriate comments, inline documentation, and clear explanations of complex logic.
-    4. Error Handling: Examine the code for proper error handling and the inclusion of graceful error recovery mechanisms.
-    5. Code Testability: Review the code for its ease of unit testing, mocking, and overall testability.
-    7. Code Complexity: Analyze the code for signs of excessive complexity, convoluted logic, and potential code smells.
-    8. Code Duplication: Identify any code duplication and assess its impact on maintainability and readability.
-    9. Code Readability: Evaluate the code for readability, clarity, and adherence to coding best practices.
-    
+  
+    1. Code Consistency
+    2. Code Performance
+    4. Error Handling
+    5. Code Testability
+    9. Code Readability
     Please provide a summary of the code quality assessment, and assign a rating on the 1 to 10 scale for each of the nine parameters mentioned above. A higher rating indicates better quality, while a lower rating suggests areas for improvement.
     `
     try {
@@ -130,7 +127,7 @@ async function getQualityCheck(code){
               }
             ],
             "temperature": 1,
-            "max_tokens": 400,
+            "max_tokens": 100,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
