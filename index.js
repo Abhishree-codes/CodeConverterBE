@@ -104,7 +104,7 @@ app.post("/debug", async (req,res)=>{
               },
               {
                 "role":"user",
-                "content":` ${code}`
+                "content": code
               }
             ],
             "temperature": 1,
@@ -149,7 +149,7 @@ async function getQualityCheck(code){
               },
               {
                 "role":"user",
-                "content":` ${code}`
+                "content":code
               }
             ],
             "temperature": 1,
