@@ -11,7 +11,8 @@ const openai = new OpenAI({
 
 
 const app = express()
-app.use(cors())
+app.use(cors({ origin: "https://exquisite-basbousa-f014af.netlify.app/",
+optionsSuccessStatus: 200 }));
 app.use(bodyParser.json());
 app.use(express.json());
 
