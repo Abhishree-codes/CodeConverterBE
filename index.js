@@ -117,7 +117,7 @@ app.post("/debug", async (req,res)=>{
         res.send(res.choices[0].message.content)
          
     } catch(error) {
-         res.status(500).send({"error":"error})
+         res.status(500).send({"error":error})
        // console.log(error)
     }
     // try {
