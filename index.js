@@ -100,7 +100,7 @@ app.post("/debug", async (req,res)=>{
             "messages": [
               {
                 "role": "system",
-                "content": "You are a helpful assistant that debugs the code given and return updated code. Also explain what the issue was and how you fixed it."
+                "content": "You an assistant debugs the code given and returns updated code."
               },
               {
                 "role":"user",
@@ -129,15 +129,14 @@ app.post("/debug", async (req,res)=>{
 })
 
 async function getQualityCheck(code){
-    const prompt = `Please provide a comprehensive code quality assessment for the given code. Evaluate the code based on the following parameters and rate it on a scale of 10, with 10 being the highest rating and 1 being the lowest (example: 9/10):
+    const prompt = `Please provide a comprehensive code quality assessment for the given code based on the following parameters and rate it on a scale of 10, with 10 being the highest rating and 1 being the lowest (example: 9/10):
 
   
     1. Code Consistency
     2. Code Performance
     4. Error Handling
     5. Code Testability
-    9. Code Readability
-    Please provide a summary of the code quality assessment, and assign a rating on the 1 to 10 scale for each of the nine parameters mentioned above. A higher rating indicates better quality, while a lower rating suggests areas for improvement.
+    9. Code Readability.
     `
     try {
         const res = await openai.chat.completions.create(
