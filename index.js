@@ -146,7 +146,7 @@ app.post("/quality", async (req,res)=>{
         const response = await getQualityCheck(code)
         res.send(response)
     } catch (error) {
-        res.status(500).send({"error":"internal server error"})
+        res.status(500).send({"error":error})
     }
 })
 app.listen(8080,()=>{
