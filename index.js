@@ -63,9 +63,37 @@ app.post("/convert/:lang", async (req,res)=>{
     
 })
 
-async function getDebuggedCode (code){
-    try {
-        const res = await openai.chat.completions.create(
+// async function getDebuggedCode (code){
+//     try {
+//         const res = await openai.chat.completions.create(
+//         {
+//             "model": "gpt-3.5-turbo",
+//             "messages": [
+//               {
+//                 "role": "system",
+//                 "content": "You are a helpful assistant that debugs the code given and return updated code. Also explain what the issue was and how you fixed it."
+//               },
+//               {
+//                 "role":"user",
+//                 "content":` ${code}`
+//               }
+//             ],
+//             "temperature": 1,
+//             "max_tokens": 256,
+//             "top_p": 1,
+//             "frequency_penalty": 0,
+//             "presence_penalty": 0
+//           }
+//         )
+//         return res.choices[0].message.content
+//     } catch(error) {
+//         console.log(error)
+//     }
+// }
+app.post("/debug", async (req,res)=>{
+    const {code} = req.body
+     try {
+        const response = await openai.chat.completions.create(
         {
             "model": "gpt-3.5-turbo",
             "messages": [
@@ -85,20 +113,18 @@ async function getDebuggedCode (code){
             "presence_penalty": 0
           }
         )
-        return res.choices[0].message.content
+        res.send(res.choices[0].message.content)
+         
     } catch(error) {
-        console.log(error)
+         res.status(500).send({"error":"internal server error"})
+       // console.log(error)
     }
-}
-app.post("/debug", async (req,res)=>{
-    const {code} = req.body
-    
-    try {
-        const response = await getDebuggedCode(code)
-        res.send(response)
-    } catch (error) {
-        res.status(500).send({"error":"internal server error"})
-    }
+    // try {
+    //     const response = await getDebuggedCode(code)
+    //     res.send(response)
+    // } catch (error) {
+    //     res.status(500).send({"error":"internal server error"})
+    // }
 })
 
 async function getQualityCheck(code){
