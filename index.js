@@ -79,7 +79,7 @@ async function getDebuggedCode (code){
               }
             ],
             "temperature": 1,
-            "max_tokens": 100,
+            "max_tokens": 256,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
@@ -127,7 +127,7 @@ async function getQualityCheck(code){
               }
             ],
             "temperature": 1,
-            "max_tokens": 100,
+            "max_tokens": 256,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
