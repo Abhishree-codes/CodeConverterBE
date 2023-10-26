@@ -108,7 +108,7 @@ app.post("/debug", async (req,res)=>{
               }
             ],
             "temperature": 1,
-            "max_tokens": 250,
+            "max_tokens": 100,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
@@ -129,7 +129,7 @@ app.post("/debug", async (req,res)=>{
 })
 
 async function getQualityCheck(code){
-    const prompt = `Please provide a comprehensive code quality assessment for the given code based on the following parameters and rate it on a scale of 10, with 10 being the highest rating and 1 being the lowest (example: 9/10):
+    const prompt = `Please provide a concise code quality assessment for the given code based on the following parameters and rate it on a scale of 10, with 10 being the highest rating and 1 being the lowest (example: 9/10):
 
   
     1. Code Consistency
@@ -153,7 +153,7 @@ async function getQualityCheck(code){
               }
             ],
             "temperature": 1,
-            "max_tokens": 250,
+            "max_tokens": 100,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
