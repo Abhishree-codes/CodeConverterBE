@@ -100,7 +100,7 @@ app.post("/debug", async (req,res)=>{
             "messages": [
               {
                 "role": "system",
-                "content": "You an assistant debugs the code given and returns updated code. Also explain what the issue was and how you fixed it."
+                "content": "You an assistant debugs the code given and returns fixed code. Also explain what the issue was and how you fixed it."
               },
               {
                 "role":"user",
