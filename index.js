@@ -100,7 +100,7 @@ app.post("/debug", async (req,res)=>{
             "messages": [
               {
                 "role": "system",
-                "content": "You an assistant debugs the code given and returns updated code."
+                "content": "You an assistant debugs the code given and returns updated code. Also explain what the issue was and how you fixed it."
               },
               {
                 "role":"user",
@@ -108,7 +108,7 @@ app.post("/debug", async (req,res)=>{
               }
             ],
             "temperature": 1,
-            "max_tokens": 100,
+            "max_tokens": 250,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
@@ -153,7 +153,7 @@ async function getQualityCheck(code){
               }
             ],
             "temperature": 1,
-            "max_tokens": 100,
+            "max_tokens": 250,
             "top_p": 1,
             "frequency_penalty": 0,
             "presence_penalty": 0
