@@ -114,7 +114,7 @@ app.post("/debug", async (req,res)=>{
             "presence_penalty": 0
           }
         )
-        res.send(res.choices[0].message.content)
+        res.send(response.choices[0].message.content)
          
     } catch(error) {
          res.status(500).send({"error":error})
